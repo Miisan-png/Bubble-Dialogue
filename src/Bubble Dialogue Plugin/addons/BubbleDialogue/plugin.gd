@@ -9,8 +9,6 @@ var dialogue_editor_instance
 
 func _enter_tree():
 	add_custom_type("DialogueResource", "Resource", DialogueResource, null)
-	
-	# Add BubbleDialogue as a custom node
 	add_custom_type("BubbleDialogue", "Panel", preload("res://addons/BubbleDialogue/scripts/DialogueBubble.gd"), preload("res://addons/BubbleDialogue/Icons/BubbleDIalogueIcon.svg"))
 	
 	dialogue_editor_instance = DialogueScriptEditor.instantiate()
