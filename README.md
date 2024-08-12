@@ -47,7 +47,7 @@ func _ready():
 
 ## Example
 
-![Dialogue Example](repo/readme/DialogueBox.svg)
+![Dialogue Example](repo/readme/SS.png)
 
 ## Contributing
 
