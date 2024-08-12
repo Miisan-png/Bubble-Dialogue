@@ -3,11 +3,15 @@ extends EditorPlugin
 
 const DialogueScriptEditor = preload("res://addons/BubbleDialogue/scenes/dialogue_script_editor.tscn")
 const DialogueResource = preload("res://addons/BubbleDialogue/resources/DialogueResource.gd")
+const BubbleDialogue = preload("res://addons/BubbleDialogue/scenes/bubble_dialogue.tscn")
 
 var dialogue_editor_instance
 
 func _enter_tree():
 	add_custom_type("DialogueResource", "Resource", DialogueResource, null)
+	
+	# Add BubbleDialogue as a custom node
+	add_custom_type("BubbleDialogue", "Panel", preload("res://addons/BubbleDialogue/scripts/DialogueBubble.gd"), preload("res://addons/BubbleDialogue/Icons/BubbleDIalogueIcon.svg"))
 	
 	dialogue_editor_instance = DialogueScriptEditor.instantiate()
 	dialogue_editor_instance.connect("save_requested", Callable(self, "_on_save_requested"))
@@ -15,10 +19,11 @@ func _enter_tree():
 	if dialogue_editor_instance.has_signal("new_dialogue_requested"):
 		dialogue_editor_instance.connect("new_dialogue_requested", Callable(self, "_on_new_dialogue_requested"))
 	
-	add_control_to_bottom_panel(dialogue_editor_instance, "Dialogue")
+	add_control_to_bottom_panel(dialogue_editor_instance, "Dialogue Editor")
 
 func _exit_tree():
 	remove_custom_type("DialogueResource")
+	remove_custom_type("BubbleDialogue")
 	
 	if dialogue_editor_instance:
 		remove_control_from_bottom_panel(dialogue_editor_instance)

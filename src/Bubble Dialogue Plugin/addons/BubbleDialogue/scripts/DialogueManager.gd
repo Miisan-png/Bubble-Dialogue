@@ -1,3 +1,4 @@
+@tool
 extends Node
 
 signal dialogue_started
@@ -8,8 +9,16 @@ var current_dialogue: Array = []
 var current_index: int = 0
 var dialogue_folder_path: String = "res://dialogues"
 
+func _ready():
+	# Load the saved dialogue folder path
+	var config = ConfigFile.new()
+	var err = config.load("user://dialogue_settings.cfg")
+	if err == OK:
+		set_dialogue_folder_path(config.get_value("settings", "dialogue_folder_path", "res://dialogues"))
+
 func set_dialogue_folder_path(path: String):
 	dialogue_folder_path = path
+	print("DialogueManager: Dialogue folder path set to: ", dialogue_folder_path)
 
 func start_dialogue(dialogue_resource: DialogueResource) -> void:
 	current_dialogue = dialogue_resource.get_dialogue_content().split("\n")
@@ -48,8 +57,13 @@ func load_all_dialogue_resources() -> Array:
 		var file_name = dir.get_next()
 		while file_name != "":
 			if file_name.ends_with(".tres"):
-				var resource = load(dialogue_folder_path.path_join(file_name))
+				var full_path = dialogue_folder_path.path_join(file_name)
+				var resource = load(full_path)
 				if resource is DialogueResource:
 					resources.append(resource)
+				else:
+					print("File is not a DialogueResource: ", full_path)
 			file_name = dir.get_next()
+	else:
+		push_error("An error occurred when trying to access the dialogue folder.")
 	return resources

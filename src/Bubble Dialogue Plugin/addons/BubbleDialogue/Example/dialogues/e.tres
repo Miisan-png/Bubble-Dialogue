@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueResource" load_steps=2 format=3 uid="uid://bd6ebkmxwdke4"]
+
+[ext_resource type="Script" path="res://addons/BubbleDialogue/resources/DialogueResource.gd" id="1_qdkud"]
+
+[resource]
+script = ExtResource("1_qdkud")
+dialogue_name = "e"
+dialogue_content = "#this is a new dialogue file 
+
+Miisan: Hello, how are you?
+Rafaya: I'm doing great, thanks!"

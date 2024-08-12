@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/DialogueSyntaxHighlighter.gd" id="2_afbqr"]
 [ext_resource type="Texture2D" uid="uid://dmc7dqsscesl3" path="res://addons/BubbleDialogue/Icons/BubbleDialogueLogo.svg" id="3_iayh6"]
 
-[sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_pjpk2"]
+[sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_erbh2"]
 script = ExtResource("2_afbqr")
 
 [node name="DialogueScriptEditor" type="VBoxContainer"]
@@ -42,6 +42,8 @@ text = "Dialogue Folder Path"
 
 [node name="DialogueName" type="LineEdit" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Dialogue Name"
 
 [node name="DialogueEdit" type="CodeEdit" parent="."]
 layout_mode = 2
@@ -55,8 +57,9 @@ theme_override_colors/caret_color = Color(0.929412, 0, 0.447059, 1)
 theme_override_colors/line_number_color = Color(0.763726, 0.767647, 0.770588, 0.5)
 theme_override_font_sizes/font_size = 16
 placeholder_text = "#this is a place holder text
-Miisan: Hi!"
-syntax_highlighter = SubResource("EditorSyntaxHighlighter_pjpk2")
+Miisan: Click New Dialogue to start making dialogues!
+Miisan: Remember this is in progress plugin :)"
+syntax_highlighter = SubResource("EditorSyntaxHighlighter_erbh2")
 draw_tabs = true
 draw_spaces = true
 line_folding = true

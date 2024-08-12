@@ -30,6 +30,15 @@ func _ready():
 	dialogue_folder_path_button.connect("pressed", Callable(self, "_on_dialogue_folder_path_pressed"))
 	
 	save_dialogue_button.hide()
+	
+	# Load the saved dialogue folder path
+	var config = ConfigFile.new()
+	var err = config.load("user://dialogue_settings.cfg")
+	if err == OK:
+		dialogue_folder_path = config.get_value("settings", "dialogue_folder_path", "res://dialogues")
+	
+	# Update DialogueManager with the loaded path
+	DialogueManager.set_dialogue_folder_path(dialogue_folder_path)
 
 func apply_editor_theme():
 	var editor_settings = EditorInterface.get_editor_settings()
@@ -100,9 +109,10 @@ func _on_new_dialogue_pressed():
 	file_dialog.popup_centered(Vector2(800, 600))
 
 func _on_new_dialogue_file_selected(path):
+	var file_name = path.get_file().get_basename()  # Get the file name without extension
 	var new_resource = DialogueResource.new()
-	new_resource.dialogue_name = "New Dialogue"
-	new_resource.set_dialogue_content("# This is a new dialogue file\n\nMiisan: Hello, how are you?\nRafaya: I'm doing great, thanks!")
+	new_resource.dialogue_name = file_name  # Set the dialogue_name to the file name
+	new_resource.set_dialogue_content("#this is a new dialogue file "+"\n\nMiisan: Hello, how are you?\nRafaya: I'm doing great, thanks!")
 	
 	ResourceSaver.save(new_resource, path)
 	EditorInterface.get_resource_filesystem().scan()
@@ -140,3 +150,9 @@ func _on_dialogue_folder_selected(path: String):
 	dialogue_folder_path = path
 	emit_signal("dialogue_folder_changed", path)
 	print("Dialogue folder set to: " + path)
+	
+	DialogueManager.set_dialogue_folder_path(path)
+	
+	var config = ConfigFile.new()
+	config.set_value("settings", "dialogue_folder_path", path)
+	config.save("user://dialogue_settings.cfg")
