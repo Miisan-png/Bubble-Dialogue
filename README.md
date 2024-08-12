@@ -1,6 +1,6 @@
 # BubbleDialogue
 
-![BubbleDialogue Logo](path/to/logo.png)
+![BubbleDialogue Logo](repo/readme/Logo.svg)
 
 BubbleDialogue is a simple easy to use dialogue plugin for godot 4.2 :) I made this for my game and now i am releasing it public :) 
 
