@@ -29,8 +29,9 @@ Character1: I'm doing great, thanks for asking!
 ```
 
 4. Save your dialogue
+   
+![Dialogue Example](repo/readme/SS.png)
 
-![Dialogue Editor](repo/readme/Example.svg)
 
 ### Using Dialogue in Your Game
 
@@ -44,10 +45,6 @@ extends Node2D
 func _ready():
     bubble_dialogue.play("YourDialogueName")
 ```
-
-## Example
-
-![Dialogue Example](repo/readme/DialogueBox.svg)
 
 ## Contributing
 
