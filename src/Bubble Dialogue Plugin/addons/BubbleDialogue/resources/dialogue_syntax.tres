@@ -1,0 +1,6 @@
+[gd_resource type="SyntaxHighlighter" load_steps=2 format=3 uid="uid://dvtiwj6wus6ft"]
+
+[ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/DialogueSyntaxHighlighter.gd" id="1_k887b"]
+
+[resource]
+script = ExtResource("1_k887b")

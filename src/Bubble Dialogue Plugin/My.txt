@@ -1,0 +1,5 @@
+Narrator: Welcome to our story!
+Hero: Who are you? Where am I?
+Villain: You're in my lair, foolish hero!
+Hero: I'll defeat you and save the day!
+Narrator: And so, the adventure begins...

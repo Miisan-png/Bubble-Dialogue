@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://8h2y0p4ifeaa"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_uwyjj"]
+[ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/DialogueBubble.gd" id="3_jd5bh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qib07"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_mm5nh"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_uwyjj")
+str = "Rafa"
+
+[node name="DialogueBubble" type="Panel" parent="."]
+offset_right = 484.0
+offset_bottom = 173.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qib07")
+script = ExtResource("3_jd5bh")
+
+[node name="TextLabel" type="Label" parent="DialogueBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 49.0
+offset_right = -7.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "this is where the dialogue will be played yeeeeeeeeee"
+autowrap_mode = 2
+
+[node name="IndicatorMesh" type="MeshInstance2D" parent="DialogueBubble"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(451, 134)
+rotation = -3.14159
+scale = Vector2(29, 29)
+mesh = SubResource("PrismMesh_mm5nh")
+
+[node name="CharacterNameLabel" type="Label" parent="DialogueBubble"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = -357.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Miisan:"
+autowrap_mode = 2

@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://jok6mr4hl6ia"]
+
+[ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/ScriptEditor.gd" id="1_qr7iv"]
+[ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/DialogueSyntaxHighlighter.gd" id="2_afbqr"]
+[ext_resource type="Texture2D" uid="uid://dmc7dqsscesl3" path="res://addons/BubbleDialogue/Icons/BubbleDialogueLogo.svg" id="3_iayh6"]
+
+[sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_pjpk2"]
+script = ExtResource("2_afbqr")
+
+[node name="DialogueScriptEditor" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qr7iv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NewDialogueButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "New Dialogue"
+
+[node name="SaveDialogueButton" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save Dialogue"
+
+[node name="LoadDialogueButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Load Dialogue"
+
+[node name="DialogueFolderPathButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Dialogue Folder Path"
+
+[node name="DialogueName" type="LineEdit" parent="."]
+layout_mode = 2
+
+[node name="DialogueEdit" type="CodeEdit" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/background_color = Color(0.0494118, 0.0635294, 0.0741176, 1)
+theme_override_colors/font_color = Color(0.763726, 0.767647, 0.770588, 1)
+theme_override_colors/font_selected_color = Color(0.763726, 0.767647, 0.770588, 1)
+theme_override_colors/font_readonly_color = Color(0.610981, 0.614118, 0.61647, 1)
+theme_override_colors/current_line_color = Color(0.149412, 0.163529, 0.174118, 1)
+theme_override_colors/caret_color = Color(0.929412, 0, 0.447059, 1)
+theme_override_colors/line_number_color = Color(0.763726, 0.767647, 0.770588, 0.5)
+theme_override_font_sizes/font_size = 16
+placeholder_text = "#this is a place holder text
+Miisan: Hi!"
+syntax_highlighter = SubResource("EditorSyntaxHighlighter_pjpk2")
+draw_tabs = true
+draw_spaces = true
+line_folding = true
+gutters_draw_line_numbers = true
+indent_automatic = true
+
+[node name="Logo" type="TextureRect" parent="DialogueEdit"]
+modulate = Color(1, 1, 1, 0.686275)
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -127.0
+offset_bottom = 62.0
+grow_horizontal = 0
+texture = ExtResource("3_iayh6")
+expand_mode = 1
