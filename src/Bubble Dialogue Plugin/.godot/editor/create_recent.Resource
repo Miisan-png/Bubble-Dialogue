@@ -1,0 +1,8 @@
+DialogueFile
+DialogueResource
+SyntaxHighlighter
+Resource
+GDExtension
+Item
+Shader
+JSON
