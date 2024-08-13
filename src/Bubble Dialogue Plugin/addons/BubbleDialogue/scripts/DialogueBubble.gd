@@ -7,6 +7,7 @@ extends Panel
 
 var current_dialogue: DialogueResource = null
 var tween: Tween
+var shake_tween: Tween
 
 func _ready():
 	dialogue_manager.connect("dialogue_started", Callable(self, "_on_dialogue_started"))
@@ -28,10 +29,36 @@ func _on_dialogue_started():
 
 func _on_dialogue_ended():
 	_animate_hide_dialogue_box()
+	if shake_tween:
+		shake_tween.kill()
 
 func _on_dialogue_text_changed(character: String, new_text: String):
 	character_name_label.text = character + ":"
 	_animate_text_appearance(new_text)
+	
+	var shake_start = new_text.find("[shake:")
+	if shake_start != -1:
+		var shake_end = new_text.find("]", shake_start)
+		if shake_end != -1:
+			var shake_value = new_text.substr(shake_start + 7, shake_end - shake_start - 7)
+			var shake_speed = float(shake_value)
+			_apply_shake_effect(shake_speed)
+		
+		new_text = new_text.substr(0, shake_start) + new_text.substr(shake_end + 1)
+	
+	text_label.text = new_text
+
+func _apply_shake_effect(speed: float):
+	if shake_tween:
+		shake_tween.kill()
+	
+	var original_position = position
+	shake_tween = create_tween()
+	shake_tween.set_loops()
+	shake_tween.tween_property(self, "position:y", original_position.y - 5, 0.05 / speed)
+	shake_tween.tween_property(self, "position:y", original_position.y, 0.05 / speed)
+
+
 
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_accept") and visible:

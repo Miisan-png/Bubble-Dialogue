@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://addons/BubbleDialogue/scripts/DialogueSyntaxHighlighter.gd" id="2_afbqr"]
 [ext_resource type="Texture2D" uid="uid://dmc7dqsscesl3" path="res://addons/BubbleDialogue/Icons/BubbleDialogueLogo.svg" id="3_iayh6"]
 
-[sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_erbh2"]
+[sub_resource type="EditorSyntaxHighlighter" id="EditorSyntaxHighlighter_7btk2"]
 script = ExtResource("2_afbqr")
 
 [node name="DialogueScriptEditor" type="VBoxContainer"]
@@ -59,11 +59,12 @@ theme_override_font_sizes/font_size = 16
 placeholder_text = "#this is a place holder text
 Miisan: Click New Dialogue to start making dialogues!
 Miisan: Remember this is in progress plugin :)"
-syntax_highlighter = SubResource("EditorSyntaxHighlighter_erbh2")
+syntax_highlighter = SubResource("EditorSyntaxHighlighter_7btk2")
 draw_tabs = true
 draw_spaces = true
 line_folding = true
 gutters_draw_line_numbers = true
+code_completion_enabled = true
 indent_automatic = true
 
 [node name="Logo" type="TextureRect" parent="DialogueEdit"]

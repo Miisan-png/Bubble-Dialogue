@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ewnwy")
 dialogue_name = "TestDialogue"
-dialogue_content = "Miisan: Hi! This is a dialogue!
+dialogue_content = "Miisan: Hi! This is a dialogue! [shake:1.0]
 Miisan Twin: This is another Dialogue!
 Miisan:This is an example ussage of bubble dialogue!"

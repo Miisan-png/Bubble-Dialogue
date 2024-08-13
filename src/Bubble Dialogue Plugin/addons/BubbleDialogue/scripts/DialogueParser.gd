@@ -12,9 +12,25 @@ static func parse_dialogue_file(file_path: String) -> Array:
 			if line.length() > 0:
 				var parts = line.split(":", true, 1)
 				if parts.size() == 2:
+					var character = parts[0].strip_edges()
+					var text = parts[1].strip_edges()
+					var tags = []
+					
+					# Parse tags
+					var tag_start = text.find("[")
+					while tag_start != -1:
+						var tag_end = text.find("]", tag_start)
+						if tag_end != -1:
+							var tag = text.substr(tag_start + 1, tag_end - tag_start - 1)
+							tags.append(tag)
+							tag_start = text.find("[", tag_end)
+						else:
+							break
+					
 					dialogue_entries.append({
-						"character": parts[0].strip_edges(),
-						"text": parts[1].strip_edges()
+						"character": character,
+						"text": text,
+						"tags": tags
 					})
 	
 	return dialogue_entries
