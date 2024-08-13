@@ -1,7 +1,0 @@
-res://addons/BubbleDialogue/Example/TestScene.tscn
-res://addons/BubbleDialogue/scenes/bubble_dialogue.tscn
-res://addons/BubbleDialogue/scenes/dialogue_script_editor.tscn
-res://addons/BubbleDialogue/scripts/DialogueBubble.gd
-res://addons/BubbleDialogue/Example/dialogues/Interaction.tres
-res://addons/BubbleDialogue/Example/TestScene.gd
-res://addons/BubbleDialogue/Example/dialogues/ExampleDialogue.tres
