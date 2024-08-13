@@ -5,6 +5,4 @@
 [resource]
 script = ExtResource("1_ewnwy")
 dialogue_name = "TestDialogue"
-dialogue_content = "Miisan: This whole box will shake! [shake:1.0]
-Miisan: And now [color:#8affd6] these characters change color [/color]
-Miisan: This line has no special effects."
+dialogue_content = "Flowly: This time [wait:1] i will [color:#fd0030] kill you!"

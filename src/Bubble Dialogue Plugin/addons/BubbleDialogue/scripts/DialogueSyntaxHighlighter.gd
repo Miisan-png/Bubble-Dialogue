@@ -30,6 +30,12 @@ func _get_line_syntax_highlighting(line_number: int) -> Dictionary:
 						"color": tag_color,
 						"end": tag_end + 1
 					}
+					# Reset the color after the tag
+					if tag_end + 1 < line.length():
+						highlighting[tag_end + 1] = {
+							"color": dialogue_color,
+							"end": line.length()
+						}
 					tag_start = line.find("[", tag_end)
 				else:
 					break

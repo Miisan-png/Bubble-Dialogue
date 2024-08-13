@@ -22,10 +22,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 320.0
-offset_top = 233.0
-offset_right = 804.0
-offset_bottom = 406.0
+offset_left = 311.0
+offset_top = 262.0
+offset_right = 795.0
+offset_bottom = 435.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qib07")
@@ -43,7 +43,6 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 20
-text = "dsadasda"
 autowrap_mode = 2
 
 [node name="IndicatorMesh" type="MeshInstance2D" parent="DialogueBubble"]
