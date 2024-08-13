@@ -48,11 +48,9 @@ placeholder_text = "Dialogue Name"
 [node name="DialogueEdit" type="CodeEdit" parent="."]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/background_color = Color(0.0494118, 0.0635294, 0.0741176, 1)
 theme_override_colors/font_color = Color(0.763726, 0.767647, 0.770588, 1)
 theme_override_colors/font_selected_color = Color(0.763726, 0.767647, 0.770588, 1)
 theme_override_colors/font_readonly_color = Color(0.610981, 0.614118, 0.61647, 1)
-theme_override_colors/current_line_color = Color(0.149412, 0.163529, 0.174118, 1)
 theme_override_colors/caret_color = Color(0.929412, 0, 0.447059, 1)
 theme_override_colors/line_number_color = Color(0.763726, 0.767647, 0.770588, 0.5)
 theme_override_font_sizes/font_size = 16
@@ -64,6 +62,7 @@ draw_tabs = true
 draw_spaces = true
 line_folding = true
 gutters_draw_line_numbers = true
+gutters_zero_pad_line_numbers = true
 code_completion_enabled = true
 indent_automatic = true
 

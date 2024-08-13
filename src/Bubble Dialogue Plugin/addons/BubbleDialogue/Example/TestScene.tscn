@@ -31,22 +31,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qib07")
 script = ExtResource("2_wvbqy")
 
-[node name="TextLabel" type="RichTextLabel" parent="DialogueBubble"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = 49.0
-offset_right = -7.0
-offset_bottom = -8.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 20
-autowrap_mode = 2
-
 [node name="IndicatorMesh" type="MeshInstance2D" parent="DialogueBubble"]
-modulate = Color(0, 0, 0, 1)
 position = Vector2(451, 134)
 rotation = -3.14159
 scale = Vector2(29, 29)
@@ -57,12 +42,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = -242.0
-offset_bottom = -122.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = -241.0
+offset_bottom = -121.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Miisa"
 autowrap_mode = 2

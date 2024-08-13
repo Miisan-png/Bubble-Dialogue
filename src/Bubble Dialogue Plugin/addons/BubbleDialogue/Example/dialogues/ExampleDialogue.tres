@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_ewnwy")
 dialogue_name = "TestDialogue"
-dialogue_content = "Flowly: This time [wait:1] i will [color:#fd0030] kill you!"
+dialogue_content = "Flowly: This time [wait:0.2] i will [color:#fd0030] kill you!
+Rafaya: You will [shake:1] pay for this!!! [color:#fd0030]"
