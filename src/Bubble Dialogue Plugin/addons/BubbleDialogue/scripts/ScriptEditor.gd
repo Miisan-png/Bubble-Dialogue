@@ -15,6 +15,7 @@ var current_resource: DialogueResource = null
 var base_font_size: int = 16
 var current_font_size: int = base_font_size
 var dialogue_folder_path: String = "res://dialogues"
+var dialogue_manager: Node
 
 func _ready():
 	dialogue_edit.syntax_highlighter = load("res://addons/BubbleDialogue/scripts/DialogueSyntaxHighlighter.gd").new()
@@ -37,8 +38,13 @@ func _ready():
 	if err == OK:
 		dialogue_folder_path = config.get_value("settings", "dialogue_folder_path", "res://dialogues")
 	
+	# Initialize DialogueManager
+	dialogue_manager = Node.new()
+	dialogue_manager.set_script(load("res://addons/BubbleDialogue/scripts/DialogueManager.gd"))
+	add_child(dialogue_manager)
+	
 	# Update DialogueManager with the loaded path
-	DialogueManager.set_dialogue_folder_path(dialogue_folder_path)
+	dialogue_manager.set_dialogue_folder_path(dialogue_folder_path)
 
 func apply_editor_theme():
 	var editor_settings = EditorInterface.get_editor_settings()
@@ -129,6 +135,8 @@ func _on_load_dialogue_pressed():
 	EditorInterface.get_base_control().add_child(file_dialog)
 	file_dialog.popup_centered(Vector2(800, 600))
 
+
+
 func _on_load_dialogue_file_selected(path):
 	var loaded_resource = load(path) as DialogueResource
 	if loaded_resource:
@@ -151,7 +159,7 @@ func _on_dialogue_folder_selected(path: String):
 	emit_signal("dialogue_folder_changed", path)
 	print("Dialogue folder set to: " + path)
 	
-	DialogueManager.set_dialogue_folder_path(path)
+	dialogue_manager.set_dialogue_folder_path(path)
 	
 	var config = ConfigFile.new()
 	config.set_value("settings", "dialogue_folder_path", path)
